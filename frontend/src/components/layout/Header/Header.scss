@@ -1,0 +1,13 @@
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 4.5rem;
+}
+
+.site-header .logo {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-decoration: none;
+}

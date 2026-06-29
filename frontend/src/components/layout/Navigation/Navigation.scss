@@ -1,0 +1,15 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+
+  a {
+    color: var(--color-muted);
+    text-decoration: none;
+
+    &.active,
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.mobile-menu {
+  position: fixed;
+  z-index: 20;
+  inset: 4.5rem 0 auto;
+  padding: 1.5rem;
+  background: var(--color-surface);
+  box-shadow: 0 1rem 2rem rgb(48 39 44 / 12%);
+
+  &[hidden] {
+    display: none;
+  }
+}

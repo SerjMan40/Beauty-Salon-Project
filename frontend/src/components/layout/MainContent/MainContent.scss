@@ -1,0 +1,5 @@
+.main-content {
+  width: min(100% - 2rem, 1200px);
+  margin-inline: auto;
+  padding-block: clamp(2.5rem, 6vw, 5rem);
+}

@@ -1,0 +1,17 @@
+.reviews-section {
+  padding-block: 4rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  blockquote {
+    margin: 0;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: var(--color-surface);
+  }
+}

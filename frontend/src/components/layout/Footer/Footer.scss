@@ -1,0 +1,7 @@
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--color-muted);
+  border-top: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+}

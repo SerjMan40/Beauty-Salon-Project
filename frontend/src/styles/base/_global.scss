@@ -1,0 +1,68 @@
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+button,
+a {
+  transition: opacity 180ms ease;
+}
+
+.app-shell {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+.site-header,
+.site-footer,
+.main-content {
+  width: min(100% - 2rem, 1200px);
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1.25rem;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.main-content {
+  padding-block: 4rem;
+}
+
+.site-footer {
+  padding-block: 2rem;
+}
+
+.hero-section {
+  display: grid;
+  max-width: 48rem;
+  gap: 1.5rem;
+}
+
+.eyebrow {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.button {
+  width: fit-content;
+  padding: 0.75rem 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  color: white;
+  background: var(--color-accent);
+  text-decoration: none;
+  cursor: pointer;
+}
