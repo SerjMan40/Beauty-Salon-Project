@@ -1,0 +1,19 @@
+{
+  "name": "Beauty-salon-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Manuylov Sergey",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "yarn --cwd backend install && yarn --cwd frontend install",
+    "install:all": "yarn install",
+    "dev": "concurrently -n backend,frontend -c cyan,magenta \"yarn --cwd backend dev\" \"yarn --cwd frontend dev\"",
+    "start": "yarn dev",
+    "build": "yarn --cwd frontend build",
+    "frontend": "yarn --cwd frontend dev",
+    "backend": "yarn --cwd backend dev"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
