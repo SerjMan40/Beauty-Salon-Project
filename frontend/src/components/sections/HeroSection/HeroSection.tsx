@@ -1,27 +1,45 @@
-import type { ReactNode } from 'react'
-import { classNames } from '../../../utils/helpers/classNames'
+import { Link } from 'react-router-dom'
+
+import { ROUTES } from '../../../app/config/routes'
+import { PageContainer } from '../../../layouts/components/PageContainer/PageContainer'
+import type { HeroSectionProps } from './types'
+
 import './HeroSection.scss'
 
-interface HeroSectionProps {
-  title: string
-  description: string
-  eyebrow?: string
-  actions?: ReactNode
-  image?: ReactNode
-}
+export function HeroSection({
+  title = 'Красота, созданная для вас',
+  description = 'Профессиональный уход, современные техники и атмосфера, в которую хочется возвращаться.',
+  eyebrow = 'Beauty Salon',
+  actions,
+  image,
+}: HeroSectionProps = {}) {
+  const heroActions = actions ?? (
+    <>
+      <Link className="button" to={ROUTES.booking}>
+        Записаться
+      </Link>
 
-export function HeroSection(props: HeroSectionProps) {
-  const { title, description, eyebrow, actions, image } = props
+      <Link className="button button--secondary" to={ROUTES.services}>
+        Услуги
+      </Link>
+    </>
+  )
 
   return (
-    <section className={classNames('hero', 'hero-section')}>
-      <div className="hero__content">
-        {eyebrow && <p className="hero__eyebrow">{eyebrow}</p>}
-        <h1>{title}</h1>
-        <p className="hero__description">{description}</p>
-        {actions && <div className="hero__actions">{actions}</div>}
-      </div>
-      {image && <div className="hero__media">{image}</div>}
+    <section className="hero-section">
+      <PageContainer className="hero-section__inner">
+        <div className="hero-section__content">
+          {eyebrow && <p className="hero-section__eyebrow">{eyebrow}</p>}
+
+          <h1 className="hero-section__title">{title}</h1>
+
+          <p className="hero-section__description">{description}</p>
+
+          <div className="hero-section__actions">{heroActions}</div>
+        </div>
+
+        {image && <div className="hero-section__media">{image}</div>}
+      </PageContainer>
     </section>
   )
 }

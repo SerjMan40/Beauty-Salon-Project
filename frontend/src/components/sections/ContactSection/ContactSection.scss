@@ -1,0 +1,49 @@
+@use '../../../styles/abstracts/breakpoints';
+
+.contact-section {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.contact-section__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(16rem, 1.1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: stretch;
+
+  @include breakpoints.down('tablet') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-section__content {
+  max-width: 36rem;
+}
+
+.contact-section__list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-section__item {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.contact-section__label {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.contact-section__value {
+  font-weight: 600;
+}
+
+.contact-section__map {
+  display: grid;
+  min-height: 18rem;
+  place-items: center;
+  color: var(--color-muted);
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+}

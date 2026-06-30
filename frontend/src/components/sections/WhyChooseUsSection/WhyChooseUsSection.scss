@@ -1,0 +1,23 @@
+.why-choose-us {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.why-choose-us__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.why-choose-us__card {
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+}
+
+.why-choose-us__card-title {
+  margin-bottom: 0.5rem;
+}
+
+.why-choose-us__card-description {
+  color: var(--color-muted);
+}

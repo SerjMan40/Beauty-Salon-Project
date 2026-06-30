@@ -1,12 +1,32 @@
+@use '../../../styles/abstracts/breakpoints';
+
 .hero-section {
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.hero-section__inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.8fr);
   align-items: center;
   gap: clamp(2rem, 6vw, 6rem);
   min-height: 32rem;
 
-  @media (max-width: 768px) {
+  @include breakpoints.down('tablet') {
     grid-template-columns: 1fr;
     min-height: auto;
   }
+}
+
+.hero-section__content {
+  max-width: 40rem;
+}
+
+.hero-section__description {
+  max-width: 34rem;
+}
+
+.hero-section__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }

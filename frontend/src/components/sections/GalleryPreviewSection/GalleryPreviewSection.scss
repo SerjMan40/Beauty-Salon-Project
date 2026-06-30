@@ -1,0 +1,32 @@
+.gallery-preview {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.gallery-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-preview__item {
+  min-height: 14rem;
+}
+
+.gallery-preview__placeholder {
+  display: grid;
+  min-height: 100%;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+  color: var(--color-muted);
+}
+
+.gallery-preview__footer {
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-preview__link {
+  text-decoration: none;
+}

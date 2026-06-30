@@ -1,17 +1,23 @@
 .reviews-section {
-  padding-block: 4rem;
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
+.reviews-section__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
 
-  blockquote {
-    margin: 0;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    background: var(--color-surface);
-  }
+.reviews-section__card {
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+}
+
+.reviews-section__author {
+  margin-bottom: 1rem;
+}
+
+.reviews-section__text {
+  color: var(--color-muted);
 }

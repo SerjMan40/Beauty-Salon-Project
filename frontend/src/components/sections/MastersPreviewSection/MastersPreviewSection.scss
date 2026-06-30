@@ -1,10 +1,23 @@
 .masters-preview {
-  padding-block: 4rem;
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
+.masters-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.masters-preview__empty {
+  color: var(--color-muted);
+}
+
+.masters-preview__footer {
+  display: flex;
+  justify-content: center;
+}
+
+.masters-preview__link {
+  text-decoration: none;
 }
