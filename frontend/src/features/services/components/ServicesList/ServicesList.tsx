@@ -1,5 +1,7 @@
+import type { Service } from '../../types/service.types'
 import { ServiceCard } from '../ServiceCard/ServiceCard'
-import type { Service } from '../../../../types/service.types'
+
+import './ServicesList.scss'
 
 interface ServicesListProps {
   services: Service[]
@@ -7,7 +9,7 @@ interface ServicesListProps {
 
 export function ServicesList({ services }: ServicesListProps) {
   if (!services.length) {
-    return <p className="services-list__empty">Услуги пока не добавлены.</p>
+    return <p className="services-list__empty">Пока нет доступных услуг.</p>
   }
 
   return (

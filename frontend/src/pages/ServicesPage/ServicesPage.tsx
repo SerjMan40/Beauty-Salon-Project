@@ -1,5 +1,53 @@
+import { useEffect } from 'react'
+import { EmptyState } from '../../components/sections/EmptyState/EmptyState'
+import { SectionHeader } from '../../components/ui/SectionHeader'
+import { Loader } from '../../components/ui/Loader/Loader'
+import {
+  fetchServices,
+  selectActiveServiceCategory,
+  selectFilteredServices,
+  selectServiceCategories,
+  selectServicesError,
+  selectServicesLoading,
+  ServiceCategoryTabs,
+  ServicesList,
+  setActiveServiceCategory,
+} from '../../features/services'
+import { useAppDispatch, useAppSelector } from '../../hooks'
 import './ServicesPage.scss'
 
 export function ServicesPage() {
-  return <h1>Услуги</h1>
+  const dispatch = useAppDispatch()
+  const services = useAppSelector(selectFilteredServices)
+  const categories = useAppSelector(selectServiceCategories)
+  const activeCategory = useAppSelector(selectActiveServiceCategory)
+  const isLoading = useAppSelector(selectServicesLoading)
+  const error = useAppSelector(selectServicesError)
+
+  useEffect(() => {
+    void dispatch(fetchServices())
+  }, [dispatch])
+
+  return (
+    <section className="services-page" aria-labelledby="services-page-title">
+      <SectionHeader
+        eyebrow="Каталог"
+        title="Услуги"
+        titleId="services-page-title"
+        description="Выберите подходящую категорию и найдите услугу для вашего ухода."
+      />
+
+      <ServiceCategoryTabs
+        categories={categories}
+        activeCategory={activeCategory}
+        onCategoryChange={(category) => dispatch(setActiveServiceCategory(category))}
+      />
+
+      {isLoading && <Loader />}
+      {!isLoading && error && (
+        <EmptyState title="Не удалось загрузить услуги" description={error} />
+      )}
+      {!isLoading && !error && <ServicesList services={services} />}
+    </section>
+  )
 }

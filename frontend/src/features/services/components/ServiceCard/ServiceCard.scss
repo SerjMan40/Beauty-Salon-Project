@@ -1,4 +1,59 @@
 .service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 100%;
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.service-card__image {
+  width: calc(100% + 3rem);
+  height: 12rem;
+  margin: -1.5rem -1.5rem 0;
+  object-fit: cover;
+}
+
+.service-card__content {
   display: grid;
+  gap: 0.75rem;
+}
+
+.service-card__title {
+  margin: 0;
+}
+
+.service-card__category {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.service-card__description {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.service-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.service-card__actions {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+}
+
+.service-card__link,
+.service-card__booking {
+  text-decoration: none;
 }

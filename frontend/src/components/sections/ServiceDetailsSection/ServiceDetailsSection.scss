@@ -1,3 +1,5 @@
+@use '../../../styles/abstracts/breakpoints';
+
 .service-details {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -9,7 +11,7 @@
     border-radius: 1.5rem;
   }
 
-  @media (max-width: 768px) {
+  @include breakpoints.down('tablet') {
     grid-template-columns: 1fr;
   }
 }

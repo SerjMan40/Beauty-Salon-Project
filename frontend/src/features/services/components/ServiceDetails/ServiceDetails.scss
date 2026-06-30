@@ -1,4 +1,59 @@
+@use '../../../../styles/abstracts/breakpoints';
+
 .service-details {
   display: grid;
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.4fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+
+  @include breakpoints.down('tablet') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-details__content {
+  max-width: 42rem;
+}
+
+.service-details__eyebrow {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.service-details__title {
+  margin-block: 0.5rem 0;
+}
+
+.service-details__description {
+  margin-top: 1rem;
+  color: var(--color-muted);
+}
+
+.service-details__meta,
+.service-details__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.service-details__aside {
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+}
+
+.service-details__image {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 0.75rem;
+}
+
+.service-details__aside h2 {
+  margin-top: 0;
+}
+
+.service-details__aside ul {
+  padding-left: 1.25rem;
+  color: var(--color-muted);
 }

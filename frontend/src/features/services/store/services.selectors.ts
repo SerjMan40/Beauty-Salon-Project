@@ -3,6 +3,7 @@ import type { RootState } from '../../../app/store'
 export const selectServicesState = (state: RootState) => state.services
 export const selectServices = (state: RootState) => selectServicesState(state).items
 export const selectServicesLoading = (state: RootState) => selectServicesState(state).isLoading
+export const selectServicesHasLoaded = (state: RootState) => selectServicesState(state).hasLoaded
 export const selectServicesError = (state: RootState) => selectServicesState(state).error
 export const selectActiveServiceCategory = (state: RootState) =>
   selectServicesState(state).activeCategory

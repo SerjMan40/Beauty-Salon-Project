@@ -18,6 +18,7 @@ export {
   selectServiceCategories,
   selectServices,
   selectServicesError,
+  selectServicesHasLoaded,
   selectServicesLoading,
   selectServicesState,
 } from './store/services.selectors'

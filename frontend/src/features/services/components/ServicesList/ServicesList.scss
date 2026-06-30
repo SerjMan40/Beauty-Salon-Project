@@ -1,4 +1,19 @@
+@use '../../../../styles/abstracts/breakpoints';
+
 .services-list {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
+
+  @include breakpoints.down('tablet') {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include breakpoints.down('mobile') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.services-list__empty {
+  color: var(--color-muted);
 }

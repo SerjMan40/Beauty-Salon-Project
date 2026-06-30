@@ -1,4 +1,71 @@
+@use '../../styles/abstracts/breakpoints';
+
 .service-details-page {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.service-details-page__inner {
   display: grid;
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.4fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+
+  @include breakpoints.down('tablet') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-details-page__content {
+  max-width: 42rem;
+}
+
+.service-details-page__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.service-details-page__title {
+  margin: 0;
+}
+
+.service-details-page__description {
+  margin-top: 1rem;
+  color: var(--color-muted);
+}
+
+.service-details-page__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  color: var(--color-muted);
+}
+
+.service-details-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.service-details-page__button,
+.service-details-page__link {
+  text-decoration: none;
+}
+
+.service-details-page__aside {
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+}
+
+.service-details-page__aside h2 {
+  margin-top: 0;
+}
+
+.service-details-page__aside ul {
+  padding-left: 1.25rem;
+  color: var(--color-muted);
 }
