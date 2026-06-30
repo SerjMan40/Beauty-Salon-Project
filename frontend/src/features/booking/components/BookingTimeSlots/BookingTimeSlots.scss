@@ -1,0 +1,29 @@
+.booking-time-slots {
+  display: grid;
+  gap: 1rem;
+}
+
+.booking-time-slots__title {
+  margin: 0;
+}
+
+.booking-time-slots__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.booking-time-slots__item {
+  padding: 0.875rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 999px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.booking-time-slots__item:hover,
+.booking-time-slots__item--selected {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}

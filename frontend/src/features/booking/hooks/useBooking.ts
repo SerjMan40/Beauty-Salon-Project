@@ -1,9 +1,9 @@
 import { useCallback } from 'react'
-import { appointmentsApi } from '../api/appointments.api'
 import { useAppDispatch, useAppSelector } from '../../../hooks'
-import { addAppointment } from '../store/appointments.slice'
-import { selectAppointments, selectAppointmentsLoading } from '../store/appointments.selectors'
-import type { CreateAppointmentDto } from '../types/appointment.types'
+import { appointmentsApi } from '../api/booking.api'
+import { selectAppointments, selectAppointmentsLoading } from '../store/booking.selectors'
+import { addAppointment } from '../store/booking.slice'
+import type { CreateAppointmentDto } from '../types/booking.types'
 
 export function useBooking() {
   const dispatch = useAppDispatch()

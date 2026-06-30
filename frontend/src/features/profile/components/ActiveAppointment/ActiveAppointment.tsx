@@ -1,6 +1,6 @@
-import { AppointmentStatus } from '../../../appointments'
-import { formatDate } from '../../../../utils/date/formatDate'
 import type { VisitHistoryItem } from '../../../../types/user.types'
+import { formatDate } from '../../../../utils/date/formatDate'
+import { BookingStatus } from '../../../booking'
 
 interface ActiveAppointmentProps {
   appointment: VisitHistoryItem | null
@@ -16,7 +16,7 @@ export function ActiveAppointment({ appointment }: ActiveAppointmentProps) {
       <h3>{appointment.serviceName}</h3>
       <p>Мастер: {appointment.masterName}</p>
       <p>{formatDate(appointment.startsAt, 'dd.MM.yyyy HH:mm')}</p>
-      <AppointmentStatus status={appointment.status} />
+      <BookingStatus status={appointment.status} />
     </article>
   )
 }

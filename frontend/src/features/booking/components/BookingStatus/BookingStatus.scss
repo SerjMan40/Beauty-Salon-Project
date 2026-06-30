@@ -1,0 +1,30 @@
+.booking-status {
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+}
+
+.booking-status__title {
+  margin: 0;
+}
+
+.booking-status__description {
+  margin: 0.5rem 0 0;
+  color: var(--color-muted);
+}
+
+.booking-status--idle {
+  background: transparent;
+}
+
+.booking-status--info {
+  border-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+
+.booking-status--success {
+  border-color: color-mix(in srgb, green 35%, transparent);
+}
+
+.booking-status--error {
+  border-color: color-mix(in srgb, red 35%, transparent);
+}

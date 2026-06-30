@@ -1,6 +1,6 @@
-import { API_ROUTES } from '../../../constants/api.constants'
-import type { Appointment, CreateAppointmentDto } from '../types/appointment.types'
 import { apiClient } from '../../../api/axios'
+import { API_ROUTES } from '../../../constants/api.constants'
+import type { Appointment, CreateAppointmentDto } from '../types/booking.types'
 
 export const appointmentsApi = {
   getMine: () => apiClient.get<Appointment[]>(API_ROUTES.appointments),

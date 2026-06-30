@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { appointmentsApi } from '../api/appointments.api'
-import type { CreateAppointmentDto } from '../types/appointment.types'
+import { appointmentsApi } from '../api/booking.api'
+import type { CreateAppointmentDto } from '../types/booking.types'
 
 export const fetchAppointments = createAsyncThunk(
   'appointments/fetchAll',

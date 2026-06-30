@@ -1,0 +1,44 @@
+.booking-summary {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+}
+
+.booking-summary__title {
+  margin: 0;
+}
+
+.booking-summary__list {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+.booking-summary__item {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.booking-summary__item dt {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.booking-summary__item dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.booking-summary__button {
+  padding: 0.875rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.booking-summary__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
