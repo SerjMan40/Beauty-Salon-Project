@@ -1,13 +1,25 @@
 export const ROUTES = {
-  login: '/login',
-  register: '/register',
-  admin: '/admin',
+  // public
   home: '/',
   services: '/services',
   serviceDetails: '/services/:serviceId',
+
+  masters: '/masters',
   masterDetails: '/masters/:masterId',
+
+  articles: '/articles',
+  articleDetails: '/articles/:articleId',
+
+  gallery: '/gallery',
+
+  // protected
   booking: '/booking',
   profile: '/profile',
-  articles: '/articles',
-  gallery: '/gallery',
+
+  // auth
+  login: '/login',
+  register: '/register',
+
+  // admin
+  admin: '/admin',
 } as const
