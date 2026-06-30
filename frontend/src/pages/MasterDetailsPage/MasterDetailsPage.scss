@@ -1,4 +1,15 @@
 .master-details-page {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.master-details-page__state {
   display: grid;
-  gap: 2rem;
+  place-items: center;
+  gap: 1.5rem;
+  min-height: 20rem;
+  text-align: center;
+}
+
+.master-details-page__link {
+  text-decoration: none;
 }

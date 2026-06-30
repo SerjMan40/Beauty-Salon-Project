@@ -2,7 +2,7 @@ import { MasterCard } from '../MasterCard/MasterCard'
 
 import type { MastersListProps } from './types'
 
-import './MastersList.scss'
+import './MasterList.scss'
 
 export function MastersList({ masters }: MastersListProps) {
   if (!masters.length) {

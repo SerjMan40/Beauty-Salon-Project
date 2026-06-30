@@ -15,10 +15,12 @@ import {
 import { useAppDispatch, useAppSelector } from '../../hooks'
 
 import './ServiceDetailsPage.scss'
+import { PageContainer } from '../../layouts/components/PageContainer/PageContainer'
 
 export function ServiceDetailsPage() {
   const dispatch = useAppDispatch()
   const { serviceId = '' } = useParams<{ serviceId: string }>()
+
   const service = useAppSelector(selectServiceById(serviceId))
   const isLoading = useAppSelector(selectServicesLoading)
   const hasLoaded = useAppSelector(selectServicesHasLoaded)
@@ -33,7 +35,11 @@ export function ServiceDetailsPage() {
   if (!hasLoaded || isLoading) {
     return (
       <section className="service-details-page">
-        <Loader />
+        <PageContainer>
+          <div className="service-details-page__state">
+            <Loader />
+          </div>
+        </PageContainer>
       </section>
     )
   }
@@ -41,8 +47,15 @@ export function ServiceDetailsPage() {
   if (error) {
     return (
       <section className="service-details-page">
-        <EmptyState title="Не удалось загрузить услугу" description={error} />
-        <Link to={ROUTES.services}>Вернуться к услугам</Link>
+        <PageContainer>
+          <div className="service-details-page__state">
+            <EmptyState title="Не удалось загрузить услугу" description={error} />
+
+            <Link className="service-details-page__link" to={ROUTES.services}>
+              Вернуться к услугам
+            </Link>
+          </div>
+        </PageContainer>
       </section>
     )
   }
@@ -50,18 +63,27 @@ export function ServiceDetailsPage() {
   if (!service) {
     return (
       <section className="service-details-page">
-        <EmptyState
-          title="Услуга не найдена"
-          description="Возможно, она была удалена или ссылка устарела."
-        />
-        <Link to={ROUTES.services}>Вернуться к услугам</Link>
+        <PageContainer>
+          <div className="service-details-page__state">
+            <EmptyState
+              title="Услуга не найдена"
+              description="Возможно, она была удалена или ссылка устарела."
+            />
+
+            <Link className="service-details-page__link" to={ROUTES.services}>
+              Вернуться к услугам
+            </Link>
+          </div>
+        </PageContainer>
       </section>
     )
   }
 
   return (
     <section className="service-details-page">
-      <ServiceDetails service={service} />
+      <PageContainer>
+        <ServiceDetails service={service} />
+      </PageContainer>
     </section>
   )
 }

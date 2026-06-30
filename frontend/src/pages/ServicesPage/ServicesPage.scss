@@ -1,4 +1,16 @@
 .services-page {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.services-page__header {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.services-page__filters {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.services-page__content {
   display: grid;
   gap: 2rem;
 }

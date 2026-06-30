@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
+
 import { EmptyState } from '../../components/sections/EmptyState/EmptyState'
-import { SectionHeader } from '../../components/ui/SectionHeader'
+
 import { Loader } from '../../components/ui/Loader/Loader'
+import { SectionHeader } from '../../components/ui/SectionHeader'
 import {
   fetchServices,
   selectActiveServiceCategory,
@@ -14,10 +16,13 @@ import {
   setActiveServiceCategory,
 } from '../../features/services'
 import { useAppDispatch, useAppSelector } from '../../hooks'
+
 import './ServicesPage.scss'
+import { PageContainer } from '../../layouts/components/PageContainer/PageContainer'
 
 export function ServicesPage() {
   const dispatch = useAppDispatch()
+
   const services = useAppSelector(selectFilteredServices)
   const categories = useAppSelector(selectServiceCategories)
   const activeCategory = useAppSelector(selectActiveServiceCategory)
@@ -30,24 +35,39 @@ export function ServicesPage() {
 
   return (
     <section className="services-page" aria-labelledby="services-page-title">
-      <SectionHeader
-        eyebrow="Каталог"
-        title="Услуги"
-        titleId="services-page-title"
-        description="Выберите подходящую категорию и найдите услугу для вашего ухода."
-      />
+      <PageContainer>
+        <div className="services-page__header">
+          <SectionHeader
+            eyebrow="Каталог"
+            title="Услуги"
+            titleId="services-page-title"
+            description="Выберите подходящую категорию и найдите услугу для вашего ухода."
+          />
+        </div>
 
-      <ServiceCategoryTabs
-        categories={categories}
-        activeCategory={activeCategory}
-        onCategoryChange={(category) => dispatch(setActiveServiceCategory(category))}
-      />
+        <div className="services-page__filters">
+          <ServiceCategoryTabs
+            categories={categories}
+            activeCategory={activeCategory}
+            onCategoryChange={(category) =>
+              dispatch(setActiveServiceCategory(category))
+            }
+          />
+        </div>
 
-      {isLoading && <Loader />}
-      {!isLoading && error && (
-        <EmptyState title="Не удалось загрузить услуги" description={error} />
-      )}
-      {!isLoading && !error && <ServicesList services={services} />}
+        <div className="services-page__content">
+          {isLoading && <Loader />}
+
+          {!isLoading && error && (
+            <EmptyState
+              title="Не удалось загрузить услуги"
+              description={error}
+            />
+          )}
+
+          {!isLoading && !error && <ServicesList services={services} />}
+        </div>
+      </PageContainer>
     </section>
   )
 }

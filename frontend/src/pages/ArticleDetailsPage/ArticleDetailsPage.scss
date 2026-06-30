@@ -1,4 +1,44 @@
 .article-details-page {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.article-details-page__back,
+.article-details-page__link {
+  text-decoration: none;
+}
+
+.article-details-page__header {
+  max-width: 48rem;
+  margin-top: 2rem;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.article-details-page__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.article-details-page__title {
+  margin: 0;
+}
+
+.article-details-page__description {
+  margin-top: 1rem;
+  color: var(--color-muted);
+}
+
+.article-details-page__content {
+  max-width: 48rem;
+  color: var(--color-muted);
+  line-height: 1.8;
+}
+
+.article-details-page__state {
   display: grid;
   gap: 1.5rem;
+  place-items: center;
+  min-height: 20rem;
+  text-align: center;
 }

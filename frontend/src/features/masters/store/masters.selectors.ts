@@ -3,6 +3,7 @@ import type { RootState } from '../../../app/store'
 export const selectMastersState = (state: RootState) => state.masters
 export const selectMasters = (state: RootState) => selectMastersState(state).items
 export const selectMastersLoading = (state: RootState) => selectMastersState(state).isLoading
+export const selectMastersHasLoaded = (state: RootState) => selectMastersState(state).hasLoaded
 export const selectMastersError = (state: RootState) => selectMastersState(state).error
 export const selectSelectedMaster = (state: RootState) => {
   const { items, selectedId } = selectMastersState(state)

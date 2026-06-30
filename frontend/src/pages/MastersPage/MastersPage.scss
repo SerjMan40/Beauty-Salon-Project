@@ -1,10 +1,12 @@
 .masters-page {
-  display: grid;
-  gap: 2rem;
+  padding-block: clamp(3rem, 7vw, 5rem);
 }
 
-.masters-page__grid {
+.masters-page__header {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.masters-page__content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
 }
