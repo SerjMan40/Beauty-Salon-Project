@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom'
+import './ProfileLayout.scss'
 
 export function ProfileLayout() {
   return (

@@ -1,0 +1,30 @@
+$breakpoints: (
+  'mobile': 30rem,
+  'tablet': 48rem,
+  'desktop': 64rem,
+  'wide': 75rem,
+);
+
+@mixin up($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+
+  @if $value == null {
+    @error 'Unknown breakpoint: #{$breakpoint}';
+  }
+
+  @media (min-width: $value) {
+    @content;
+  }
+}
+
+@mixin down($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+
+  @if $value == null {
+    @error 'Unknown breakpoint: #{$breakpoint}';
+  }
+
+  @media (max-width: calc($value - 0.02rem)) {
+    @content;
+  }
+}

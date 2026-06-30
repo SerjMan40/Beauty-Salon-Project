@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { ROUTES } from '../constants/routes.constants'
+import { ROUTES } from './config/routes'
 import { MainLayout } from '../layouts/MainLayout/MainLayout'
 import { ProfileLayout } from '../layouts/ProfileLayout/ProfileLayout'
 import { ArticlesPage } from '../pages/ArticlesPage/ArticlesPage'

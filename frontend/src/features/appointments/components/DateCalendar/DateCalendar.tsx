@@ -4,11 +4,7 @@ interface DateCalendarProps {
   onChange: (date: string) => void
 }
 
-export function DateCalendar({
-  value,
-  min,
-  onChange,
-}: DateCalendarProps) {
+export function DateCalendar({ value, min, onChange }: DateCalendarProps) {
   return (
     <label>
       <span>Дата записи</span>

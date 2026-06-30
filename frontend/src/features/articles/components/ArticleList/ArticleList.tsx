@@ -1,5 +1,5 @@
 import { ArticleCard } from '../ArticleCard/ArticleCard'
-import type { Article } from '../../types/article.types'
+import type { Article } from '../../../../types/article.types'
 
 interface ArticleListProps {
   articles: Article[]
@@ -14,11 +14,7 @@ export function ArticleList({ articles, onArticleClick }: ArticleListProps) {
   return (
     <div className="article-list">
       {articles.map((article) => (
-        <ArticleCard
-          key={article.id}
-          article={article}
-          onClick={onArticleClick}
-        />
+        <ArticleCard key={article.id} article={article} onClick={onArticleClick} />
       ))}
     </div>
   )

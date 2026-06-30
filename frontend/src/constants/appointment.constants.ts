@@ -5,5 +5,4 @@ export const APPOINTMENT_STATUSES = {
   cancelled: 'cancelled',
 } as const
 
-export type AppointmentStatus =
-  (typeof APPOINTMENT_STATUSES)[keyof typeof APPOINTMENT_STATUSES]
+export type AppointmentStatus = (typeof APPOINTMENT_STATUSES)[keyof typeof APPOINTMENT_STATUSES]

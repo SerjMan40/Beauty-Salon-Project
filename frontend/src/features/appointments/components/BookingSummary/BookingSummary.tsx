@@ -1,5 +1,5 @@
-import { formatDate } from '../../../../utils/formatDate'
-import { formatPrice } from '../../../../utils/formatPrice'
+import { formatDate } from '../../../../utils/date/formatDate'
+import { formatPrice } from '../../../../utils/formatters/formatPrice'
 
 interface BookingSummaryProps {
   serviceName: string
@@ -8,12 +8,7 @@ interface BookingSummaryProps {
   price: number
 }
 
-export function BookingSummary({
-  serviceName,
-  masterName,
-  startsAt,
-  price,
-}: BookingSummaryProps) {
+export function BookingSummary({ serviceName, masterName, startsAt, price }: BookingSummaryProps) {
   return (
     <section aria-labelledby="booking-summary-title">
       <h2 id="booking-summary-title">Ваша запись</h2>

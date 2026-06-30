@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { authReducer } from '../features/auth/model/authSlice'
-import { appointmentsReducer } from '../features/appointments/model/appointmentsSlice'
-import { articlesReducer } from '../features/articles/model/articlesSlice'
-import { galleryReducer } from '../features/gallery/model/gallerySlice'
-import { mastersReducer } from '../features/masters/model/mastersSlice'
-import { profileReducer } from '../features/profile/model/profileSlice'
-import { reviewsReducer } from '../features/reviews/model/reviewsSlice'
-import { servicesReducer } from '../features/services/model/servicesSlice'
+import { authReducer } from '../features/auth/store/auth.slice'
+import { appointmentsReducer } from '../features/appointments/store/appointments.slice'
+import { articlesReducer } from '../features/articles/store/articles.slice'
+import { galleryReducer } from '../features/gallery/store/gallery.slice'
+import { mastersReducer } from '../features/masters/store/masters.slice'
+import { profileReducer } from '../features/profile/store/profile.slice'
+import { reviewsReducer } from '../features/reviews/store/reviews.slice'
+import { servicesReducer } from '../features/services/store/services.slice'
 
 export const store = configureStore({
   reducer: {

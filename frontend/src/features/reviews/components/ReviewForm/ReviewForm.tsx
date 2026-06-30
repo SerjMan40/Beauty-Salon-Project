@@ -1,9 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import {
-  reviewSchema,
-  type ReviewFormValues,
-} from '../../schemas/review.schema'
+import { reviewSchema, type ReviewFormValues } from '../../schemas/review.schema'
 
 interface ReviewFormProps {
   onSubmit: (values: ReviewFormValues) => void

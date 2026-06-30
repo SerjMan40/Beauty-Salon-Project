@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { ROUTES } from '../../constants/routes.constants'
+import { ROUTES } from '../../app/config/routes'
+import './HomePage.scss'
 
 export function HomePage() {
   return (

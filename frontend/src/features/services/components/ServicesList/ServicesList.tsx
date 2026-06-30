@@ -1,5 +1,5 @@
 import { ServiceCard } from '../ServiceCard/ServiceCard'
-import type { Service } from '../../types/service.types'
+import type { Service } from '../../../../types/service.types'
 
 interface ServicesListProps {
   services: Service[]

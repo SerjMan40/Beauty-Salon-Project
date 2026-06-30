@@ -10,19 +10,15 @@ export {
   setAppointments,
   setAppointmentsError,
   setAppointmentsLoading,
-} from './model/appointmentsSlice'
+} from './store/appointments.slice'
 export {
   selectAppointments,
   selectAppointmentsError,
   selectAppointmentsLoading,
   selectAppointmentsState,
   selectSelectedAppointment,
-} from './model/appointmentsSelectors'
-export {
-  appointmentSchema,
-  type AppointmentFormValues,
-} from './schemas/appointment.schema'
-export type {
-  Appointment,
-  CreateAppointmentDto,
-} from './types/appointment.types'
+} from './store/appointments.selectors'
+export { appointmentSchema, type AppointmentFormValues } from './schemas/appointment.schema'
+export type { Appointment, CreateAppointmentDto } from './types/appointment.types'
+export { useBooking } from './hooks/useBooking'
+export { createAppointment, fetchAppointments } from './store/appointments.thunks'

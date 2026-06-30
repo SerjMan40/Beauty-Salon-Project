@@ -1,4 +1,4 @@
-import type { PersonalOffer as PersonalOfferType } from '../../types/profile.types'
+import type { PersonalOffer as PersonalOfferType } from '../../../../types/user.types'
 
 interface PersonalOfferProps {
   offer: PersonalOfferType
@@ -10,9 +10,7 @@ export function PersonalOffer({ offer }: PersonalOfferProps) {
       <h3>{offer.title}</h3>
       <p>{offer.description}</p>
       {offer.discountPercent && <strong>Скидка {offer.discountPercent}%</strong>}
-      {offer.expiresAt && (
-        <time dateTime={offer.expiresAt}>Действует до {offer.expiresAt}</time>
-      )}
+      {offer.expiresAt && <time dateTime={offer.expiresAt}>Действует до {offer.expiresAt}</time>}
     </article>
   )
 }

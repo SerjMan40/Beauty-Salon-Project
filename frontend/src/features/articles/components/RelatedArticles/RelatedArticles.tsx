@@ -1,5 +1,5 @@
 import { ArticleList } from '../ArticleList/ArticleList'
-import type { Article } from '../../types/article.types'
+import type { Article } from '../../../../types/article.types'
 
 interface RelatedArticlesProps {
   articles: Article[]

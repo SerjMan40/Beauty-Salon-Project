@@ -9,7 +9,7 @@ export {
   setServices,
   setServicesError,
   setServicesLoading,
-} from './model/servicesSlice'
+} from './store/services.slice'
 export {
   selectActiveServiceCategory,
   selectFilteredServices,
@@ -20,5 +20,6 @@ export {
   selectServicesError,
   selectServicesLoading,
   selectServicesState,
-} from './model/servicesSelectors'
+} from './store/services.selectors'
 export type { Service } from './types/service.types'
+export { fetchServices } from './store/services.thunks'

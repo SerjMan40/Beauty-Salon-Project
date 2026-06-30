@@ -1,5 +1,5 @@
 import type { SelectHTMLAttributes } from 'react'
-import { classNames } from '../../../utils/classNames'
+import { classNames } from '../../../utils/helpers/classNames'
 
 export interface SelectOption {
   label: string
@@ -12,12 +12,7 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   placeholder?: string
 }
 
-export function Select({
-  options,
-  placeholder,
-  className,
-  ...props
-}: SelectProps) {
+export function Select({ options, placeholder, className, ...props }: SelectProps) {
   return (
     <select className={classNames('select', className)} {...props}>
       {placeholder && <option value="">{placeholder}</option>}

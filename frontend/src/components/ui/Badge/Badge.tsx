@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react'
-import { classNames } from '../../../utils/classNames'
+import { classNames } from '../../../utils/helpers/classNames'
 
 type BadgeVariant = 'neutral' | 'success' | 'warning' | 'danger'
 
@@ -8,14 +8,6 @@ interface BadgeProps extends PropsWithChildren {
   className?: string
 }
 
-export function Badge({
-  variant = 'neutral',
-  className,
-  children,
-}: BadgeProps) {
-  return (
-    <span className={classNames('badge', `badge--${variant}`, className)}>
-      {children}
-    </span>
-  )
+export function Badge({ variant = 'neutral', className, children }: BadgeProps) {
+  return <span className={classNames('badge', `badge--${variant}`, className)}>{children}</span>
 }

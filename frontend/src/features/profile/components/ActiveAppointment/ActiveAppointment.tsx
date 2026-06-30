@@ -1,6 +1,6 @@
 import { AppointmentStatus } from '../../../appointments'
-import { formatDate } from '../../../../utils/formatDate'
-import type { VisitHistoryItem } from '../../types/profile.types'
+import { formatDate } from '../../../../utils/date/formatDate'
+import type { VisitHistoryItem } from '../../../../types/user.types'
 
 interface ActiveAppointmentProps {
   appointment: VisitHistoryItem | null

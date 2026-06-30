@@ -1,4 +1,4 @@
-import type { GalleryImage } from '../../types/gallery.types'
+import type { GalleryImage } from '../../../../types/gallery.types'
 
 interface GalleryImageCardProps {
   image: GalleryImage
@@ -19,9 +19,7 @@ export function GalleryImageCard({ image, onClick }: GalleryImageCardProps) {
         <img src={image.src} alt={image.alt} loading="lazy" />
       </button>
       {image.title && <h3 className="gallery-image-card__title">{image.title}</h3>}
-      {image.category && (
-        <span className="gallery-image-card__category">{image.category}</span>
-      )}
+      {image.category && <span className="gallery-image-card__category">{image.category}</span>}
     </article>
   )
 }

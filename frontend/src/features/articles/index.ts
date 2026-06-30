@@ -7,7 +7,7 @@ export {
   setArticles,
   setArticlesError,
   setArticlesLoading,
-} from './model/articlesSlice'
+} from './store/articles.slice'
 export {
   selectArticleById,
   selectArticles,
@@ -15,5 +15,6 @@ export {
   selectArticlesLoading,
   selectArticlesState,
   selectSelectedArticle,
-} from './model/articlesSelectors'
+} from './store/articles.selectors'
 export type { Article } from './types/article.types'
+export { fetchArticles } from './store/articles.thunks'

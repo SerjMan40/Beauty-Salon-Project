@@ -1,5 +1,5 @@
 import { GalleryImageCard } from '../GalleryImageCard/GalleryImageCard'
-import type { GalleryImage } from '../../types/gallery.types'
+import type { GalleryImage } from '../../../../types/gallery.types'
 
 interface GalleryGridProps {
   images: GalleryImage[]
@@ -14,11 +14,7 @@ export function GalleryGrid({ images, onImageClick }: GalleryGridProps) {
   return (
     <div className="gallery-grid">
       {images.map((image) => (
-        <GalleryImageCard
-          key={image.id}
-          image={image}
-          onClick={onImageClick}
-        />
+        <GalleryImageCard key={image.id} image={image} onClick={onImageClick} />
       ))}
     </div>
   )

@@ -9,9 +9,7 @@ interface MasterCertificatesProps {
   certificates: Certificate[]
 }
 
-export function MasterCertificates({
-  certificates,
-}: MasterCertificatesProps) {
+export function MasterCertificates({ certificates }: MasterCertificatesProps) {
   return (
     <section aria-labelledby="master-certificates-title">
       <h2 id="master-certificates-title">Сертификаты</h2>

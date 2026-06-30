@@ -1,9 +1,4 @@
-import {
-  cloneElement,
-  useId,
-  type ReactElement,
-  type ReactNode,
-} from 'react'
+import { cloneElement, useId, type ReactElement, type ReactNode } from 'react'
 
 interface TooltipProps {
   content: ReactNode

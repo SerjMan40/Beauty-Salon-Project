@@ -10,7 +10,7 @@ export {
   setProfileError,
   setProfileLoading,
   setVisitHistory,
-} from './model/profileSlice'
+} from './store/profile.slice'
 export {
   selectActiveAppointment,
   selectPersonalOffers,
@@ -19,10 +19,11 @@ export {
   selectProfileLoading,
   selectProfileState,
   selectVisitHistory,
-} from './model/profileSelectors'
+} from './store/profile.selectors'
 export { profileSchema, type ProfileFormValues } from './schemas/profile.schema'
 export type {
   PersonalOffer as PersonalOfferModel,
   Profile,
   VisitHistoryItem,
 } from './types/profile.types'
+export { fetchProfile, updateProfile } from './store/profile.thunks'

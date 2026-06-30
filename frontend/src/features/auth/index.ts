@@ -7,7 +7,7 @@ export {
   setAuthError,
   setAuthLoading,
   setCredentials,
-} from './model/authSlice'
+} from './store/auth.slice'
 export {
   selectAccessToken,
   selectAuthError,
@@ -15,16 +15,13 @@ export {
   selectAuthState,
   selectCurrentUser,
   selectIsAuthenticated,
-} from './model/authSelectors'
+} from './store/auth.selectors'
 export {
   loginSchema,
   registerSchema,
   type LoginFormValues,
   type RegisterFormValues,
 } from './schemas/auth.schema'
-export type {
-  AuthResponse,
-  LoginCredentials,
-  RegisterCredentials,
-  User,
-} from './types/auth.types'
+export type { AuthResponse, LoginCredentials, RegisterCredentials, User } from './types/auth.types'
+export { useAuth } from './hooks/useAuth'
+export { loginThunk, logoutThunk } from './store/auth.thunks'

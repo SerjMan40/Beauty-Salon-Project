@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import type { GalleryImage } from '../../types/gallery.types'
+import type { GalleryImage } from '../../../../types/gallery.types'
 
 interface GallerySliderProps {
   images: GalleryImage[]

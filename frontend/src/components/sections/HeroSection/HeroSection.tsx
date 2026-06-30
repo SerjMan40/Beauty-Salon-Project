@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Hero } from '../../layout/Hero/Hero'
+import { classNames } from '../../../utils/helpers/classNames'
 import './HeroSection.scss'
 
 interface HeroSectionProps {
@@ -11,5 +11,17 @@ interface HeroSectionProps {
 }
 
 export function HeroSection(props: HeroSectionProps) {
-  return <Hero className="hero-section" {...props} />
+  const { title, description, eyebrow, actions, image } = props
+
+  return (
+    <section className={classNames('hero', 'hero-section')}>
+      <div className="hero__content">
+        {eyebrow && <p className="hero__eyebrow">{eyebrow}</p>}
+        <h1>{title}</h1>
+        <p className="hero__description">{description}</p>
+        {actions && <div className="hero__actions">{actions}</div>}
+      </div>
+      {image && <div className="hero__media">{image}</div>}
+    </section>
+  )
 }

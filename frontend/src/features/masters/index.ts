@@ -4,10 +4,7 @@ export {
   MasterCertificates,
   type Certificate,
 } from './components/MasterCertificates/MasterCertificates'
-export {
-  MasterPortfolio,
-  type PortfolioItem,
-} from './components/MasterPortfolio/MasterPortfolio'
+export { MasterPortfolio, type PortfolioItem } from './components/MasterPortfolio/MasterPortfolio'
 export { MasterReviews } from './components/MasterReviews/MasterReviews'
 export {
   mastersReducer,
@@ -15,7 +12,7 @@ export {
   setMasters,
   setMastersError,
   setMastersLoading,
-} from './model/mastersSlice'
+} from './store/masters.slice'
 export {
   selectMasterById,
   selectMasters,
@@ -23,5 +20,6 @@ export {
   selectMastersLoading,
   selectMastersState,
   selectSelectedMaster,
-} from './model/mastersSelectors'
+} from './store/masters.selectors'
 export type { Master } from './types/master.types'
+export { fetchMasters } from './store/masters.thunks'

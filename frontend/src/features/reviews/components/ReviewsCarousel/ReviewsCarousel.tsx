@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { ReviewCard } from '../ReviewCard/ReviewCard'
-import type { Review } from '../../types/review.types'
+import type { Review } from '../../../../types/review.types'
 
 interface ReviewsCarouselProps {
   reviews: Review[]

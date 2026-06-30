@@ -1,8 +1,10 @@
 import { Outlet } from 'react-router-dom'
-import { Footer } from '../../components/layout/Footer/Footer'
-import { Header } from '../../components/layout/Header/Header'
-import { MainContent } from '../../components/layout/MainContent/MainContent'
-import { ScrollToTopButton } from '../../components/layout/ScrollToTopButton/ScrollToTopButton'
+import { CookieBanner } from '../components/CookieBanner/CookieBanner'
+import { Footer } from '../components/Footer/Footer'
+import { Header } from '../components/Header/Header'
+import { MainContent } from '../components/MainContent/MainContent'
+import { ScrollToTopButton } from '../components/ScrollToTopButton/ScrollToTopButton'
+import './MainLayout.scss'
 
 export function MainLayout() {
   return (
@@ -13,6 +15,7 @@ export function MainLayout() {
       </MainContent>
       <Footer />
       <ScrollToTopButton />
+      <CookieBanner />
     </div>
   )
 }

@@ -1,0 +1,13 @@
+.swiper {
+  width: 100%;
+}
+
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination-bullet-active {
+  color: var(--color-accent);
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--color-accent);
+}

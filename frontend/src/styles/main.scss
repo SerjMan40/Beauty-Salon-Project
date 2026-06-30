@@ -1,5 +1,11 @@
-@use 'themes/light';
-@use 'themes/dark';
+@use 'abstracts/variables';
+@use 'abstracts/functions';
+@use 'abstracts/mixins';
+@use 'abstracts/breakpoints';
 @use 'base/reset';
 @use 'base/typography';
+@use 'base/animations';
 @use 'base/global';
+@use 'themes/light';
+@use 'themes/dark';
+@use 'vendors/swiper';

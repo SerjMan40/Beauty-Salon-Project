@@ -7,7 +7,7 @@ export {
   setGalleryError,
   setGalleryImages,
   setGalleryLoading,
-} from './model/gallerySlice'
+} from './store/gallery.slice'
 export {
   selectGalleryError,
   selectGalleryImageById,
@@ -15,5 +15,6 @@ export {
   selectGalleryLoading,
   selectGalleryState,
   selectSelectedGalleryImage,
-} from './model/gallerySelectors'
+} from './store/gallery.selectors'
 export type { GalleryImage } from './types/gallery.types'
+export { fetchGallery } from './store/gallery.thunks'

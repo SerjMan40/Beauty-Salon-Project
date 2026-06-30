@@ -1,4 +1,4 @@
-import type { Article } from '../../types/article.types'
+import type { Article } from '../../../../types/article.types'
 
 interface ArticleCardProps {
   article: Article
@@ -10,9 +10,7 @@ export function ArticleCard({ article, onClick }: ArticleCardProps) {
 
   return (
     <article className="article-card">
-      {article.imageUrl && (
-        <img className="article-card__image" src={article.imageUrl} alt="" />
-      )}
+      {article.imageUrl && <img className="article-card__image" src={article.imageUrl} alt="" />}
       <div className="article-card__content">
         <h3 className="article-card__title">{article.title}</h3>
         <p className="article-card__excerpt">{article.excerpt}</p>
@@ -22,11 +20,7 @@ export function ArticleCard({ article, onClick }: ArticleCardProps) {
           </time>
         )}
         {onClick && (
-          <button
-            className="article-card__button"
-            type="button"
-            onClick={handleClick}
-          >
+          <button className="article-card__button" type="button" onClick={handleClick}>
             Читать
           </button>
         )}

@@ -4,11 +4,7 @@ interface TimeSlotsGridProps {
   onChange: (time: string) => void
 }
 
-export function TimeSlotsGrid({
-  slots,
-  value,
-  onChange,
-}: TimeSlotsGridProps) {
+export function TimeSlotsGrid({ slots, value, onChange }: TimeSlotsGridProps) {
   return (
     <div className="time-slots-grid" role="group" aria-label="Доступное время">
       {slots.map((slot) => (

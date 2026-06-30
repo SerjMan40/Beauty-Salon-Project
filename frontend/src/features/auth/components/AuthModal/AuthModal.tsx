@@ -1,9 +1,6 @@
 import { useState } from 'react'
 import { Modal } from '../../../../components/ui/Modal/Modal'
-import type {
-  LoginFormValues,
-  RegisterFormValues,
-} from '../../schemas/auth.schema'
+import type { LoginFormValues, RegisterFormValues } from '../../schemas/auth.schema'
 import { LoginForm } from '../LoginForm/LoginForm'
 import { RegisterForm } from '../RegisterForm/RegisterForm'
 
@@ -17,13 +14,7 @@ interface AuthModalProps {
   onRegister: (values: RegisterFormValues) => void | Promise<void>
 }
 
-export function AuthModal({
-  isOpen,
-  isSubmitting,
-  onClose,
-  onLogin,
-  onRegister,
-}: AuthModalProps) {
+export function AuthModal({ isOpen, isSubmitting, onClose, onLogin, onRegister }: AuthModalProps) {
   const [mode, setMode] = useState<AuthMode>('login')
 
   return (
@@ -34,13 +25,8 @@ export function AuthModal({
       ) : (
         <RegisterForm isSubmitting={isSubmitting} onSubmit={onRegister} />
       )}
-      <button
-        type="button"
-        onClick={() => setMode(mode === 'login' ? 'register' : 'login')}
-      >
-        {mode === 'login'
-          ? 'Нет аккаунта? Зарегистрироваться'
-          : 'Уже есть аккаунт? Войти'}
+      <button type="button" onClick={() => setMode(mode === 'login' ? 'register' : 'login')}>
+        {mode === 'login' ? 'Нет аккаунта? Зарегистрироваться' : 'Уже есть аккаунт? Войти'}
       </button>
     </Modal>
   )

@@ -1,5 +1,5 @@
-import { formatPrice } from '../../../../utils/formatPrice'
-import type { Service } from '../../types/service.types'
+import { formatPrice } from '../../../../utils/formatters/formatPrice'
+import type { Service } from '../../../../types/service.types'
 
 interface ServiceDetailsProps {
   service: Service

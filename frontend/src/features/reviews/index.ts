@@ -8,7 +8,7 @@ export {
   setReviews,
   setReviewsError,
   setReviewsLoading,
-} from './model/reviewsSlice'
+} from './store/reviews.slice'
 export {
   selectReviewById,
   selectReviews,
@@ -17,6 +17,7 @@ export {
   selectReviewsLoading,
   selectReviewsState,
   selectSelectedReview,
-} from './model/reviewsSelectors'
+} from './store/reviews.selectors'
 export { reviewSchema, type ReviewFormValues } from './schemas/review.schema'
 export type { CreateReviewDto, Review } from './types/review.types'
+export { createReview, fetchReviews } from './store/reviews.thunks'
