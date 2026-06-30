@@ -1,12 +1,15 @@
+@use 'sass:map';
+@use 'variables';
+
 $breakpoints: (
   'mobile': 30rem,
-  'tablet': 48rem,
+  'tablet': variables.$mobile-breakpoint,
   'desktop': 64rem,
   'wide': 75rem,
 );
 
 @mixin up($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
+  $value: map.get($breakpoints, $breakpoint);
 
   @if $value == null {
     @error 'Unknown breakpoint: #{$breakpoint}';
@@ -18,7 +21,7 @@ $breakpoints: (
 }
 
 @mixin down($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
+  $value: map.get($breakpoints, $breakpoint);
 
   @if $value == null {
     @error 'Unknown breakpoint: #{$breakpoint}';

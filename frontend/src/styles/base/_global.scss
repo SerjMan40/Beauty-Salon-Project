@@ -1,3 +1,6 @@
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
+
 body {
   min-width: 320px;
   min-height: 100vh;
@@ -7,7 +10,7 @@ body {
 
 button,
 a {
-  transition: opacity 180ms ease;
+  transition: opacity variables.$transition;
 }
 
 .app-shell {
@@ -16,18 +19,8 @@ a {
   grid-template-rows: auto 1fr auto;
 }
 
-.site-header,
-.site-footer,
 .main-content {
-  width: min(100% - 2rem, 1200px);
-  margin-inline: auto;
-}
-
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-block: 1.25rem;
+  @include mixins.container;
 }
 
 .site-header nav {
@@ -37,10 +30,6 @@ a {
 
 .main-content {
   padding-block: 4rem;
-}
-
-.site-footer {
-  padding-block: 2rem;
 }
 
 .hero-section {

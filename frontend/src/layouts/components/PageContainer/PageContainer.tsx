@@ -1,7 +1,8 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
-import { classNames } from '../../../utils/helpers/classNames'
-import './PageContainer.scss'
 
+import { classNames } from '../../../utils/helpers/classNames'
+
+import './PageContainer.scss'
 interface PageContainerProps extends Omit<ComponentPropsWithoutRef<'div'>, 'children'> {
   as?: ElementType
   children: ReactNode

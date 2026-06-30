@@ -1,5 +1,7 @@
 import type { HTMLAttributes, PropsWithChildren } from 'react'
+
 import { classNames } from '../../../utils/helpers/classNames'
+
 import './MainContent.scss'
 
 export function MainContent({
