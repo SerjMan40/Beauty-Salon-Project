@@ -1,31 +1,30 @@
-export interface Certificate {
-  id: string
-  title: string
-  imageUrl: string
-  issuedBy?: string
+import './MasterCertificates.scss'
+import type { Certificate } from './types'
+
+interface MasterCertificateProps {
+  certificate: Certificate
 }
 
-interface MasterCertificatesProps {
-  certificates: Certificate[]
-}
+export function MasterCertificate({ certificate }: MasterCertificateProps) {
+  const { title, issuer, year, image } = certificate
 
-export function MasterCertificates({ certificates }: MasterCertificatesProps) {
   return (
-    <section aria-labelledby="master-certificates-title">
-      <h2 id="master-certificates-title">Сертификаты</h2>
-      <ul className="master-certificates">
-        {certificates.map((certificate) => (
-          <li key={certificate.id}>
-            <img
-              src={certificate.imageUrl}
-              alt={`Сертификат «${certificate.title}»`}
-              loading="lazy"
-            />
-            <p>{certificate.title}</p>
-            {certificate.issuedBy && <small>{certificate.issuedBy}</small>}
-          </li>
-        ))}
-      </ul>
-    </section>
+    <article className="master-certificate">
+      <div className="master-certificate__image">
+        {image ? (
+          <img src={image} alt={title} />
+        ) : (
+          <div className="master-certificate__placeholder">Сертификат</div>
+        )}
+      </div>
+
+      <div className="master-certificate__content">
+        <h3 className="master-certificate__title">{title}</h3>
+
+        <p className="master-certificate__issuer">{issuer}</p>
+
+        <p className="master-certificate__year">{year}</p>
+      </div>
+    </article>
   )
 }

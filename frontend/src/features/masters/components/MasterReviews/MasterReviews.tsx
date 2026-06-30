@@ -1,16 +1,31 @@
-import { ReviewCard, type Review } from '../../../reviews'
+import type { MasterReviewsProps } from './types'
 
-interface MasterReviewsProps {
-  reviews: Review[]
-}
+import './MasterReviews.scss'
 
 export function MasterReviews({ reviews }: MasterReviewsProps) {
+  if (!reviews.length) {
+    return <p className="master-reviews__empty">У этого мастера пока нет отзывов.</p>
+  }
+
   return (
-    <section aria-labelledby="master-reviews-title">
-      <h2 id="master-reviews-title">Отзывы</h2>
-      {reviews.map((review) => (
-        <ReviewCard key={review.id} review={review} />
+    <div className="master-reviews">
+      {reviews.map(({ id, author, text, rating, date }) => (
+        <article className="master-reviews__item" key={id}>
+          <div className="master-reviews__header">
+            <h3 className="master-reviews__author">{author}</h3>
+
+            {rating && <span className="master-reviews__rating">{rating}/5</span>}
+          </div>
+
+          <p className="master-reviews__text">{text}</p>
+
+          {date && (
+            <time className="master-reviews__date" dateTime={date}>
+              {date}
+            </time>
+          )}
+        </article>
       ))}
-    </section>
+    </div>
   )
 }

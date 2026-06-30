@@ -1,4 +1,60 @@
 .master-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  padding: 1.5rem;
+
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+}
+
+.master-card__image {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.master-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.master-card__placeholder {
   display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+
+  background: color-mix(in srgb, var(--color-muted) 10%, transparent);
+}
+
+.master-card__content {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.master-card__name {
+  margin: 0;
+}
+
+.master-card__specialization {
+  color: var(--color-accent);
+}
+
+.master-card__experience,
+.master-card__description {
+  color: var(--color-muted);
+}
+
+.master-card__actions {
+  display: flex;
   gap: 1rem;
+  margin-top: auto;
+}
+
+.master-card__link,
+.master-card__booking {
+  text-decoration: none;
 }

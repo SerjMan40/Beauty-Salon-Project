@@ -2,3 +2,43 @@
   display: grid;
   gap: 1rem;
 }
+
+.master-reviews__item {
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+}
+
+.master-reviews__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.master-reviews__author {
+  margin: 0;
+}
+
+.master-reviews__rating {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.master-reviews__text {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.master-reviews__date {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.master-reviews__empty {
+  color: var(--color-muted);
+}

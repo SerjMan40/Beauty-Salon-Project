@@ -1,25 +1,29 @@
-export interface PortfolioItem {
-  id: string
-  imageUrl: string
-  description: string
-}
+import type { PortfolioItem } from './types'
+
+import './MasterPortfolio.scss'
 
 interface MasterPortfolioProps {
   items: PortfolioItem[]
 }
 
 export function MasterPortfolio({ items }: MasterPortfolioProps) {
+  if (!items.length) {
+    return <p className="master-portfolio__empty">Портфолио пока не добавлено.</p>
+  }
+
   return (
-    <section aria-labelledby="master-portfolio-title">
-      <h2 id="master-portfolio-title">Работы мастера</h2>
-      <div className="master-portfolio">
-        {items.map((item) => (
-          <figure key={item.id}>
-            <img src={item.imageUrl} alt={item.description} loading="lazy" />
-            <figcaption>{item.description}</figcaption>
-          </figure>
-        ))}
-      </div>
-    </section>
+    <div className="master-portfolio">
+      {items.map(({ id, title, image }) => (
+        <article className="master-portfolio__item" key={id}>
+          <div className="master-portfolio__image">
+            {image ? (
+              <img src={image} alt={title} />
+            ) : (
+              <div className="master-portfolio__placeholder">{title}</div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
   )
 }
