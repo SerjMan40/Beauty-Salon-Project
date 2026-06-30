@@ -1,0 +1,20 @@
+.section-header {
+  max-width: 42rem;
+  margin-bottom: 2rem;
+}
+
+.section-header__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.section-header__title {
+  margin: 0;
+}
+
+.section-header__description {
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+}
