@@ -6,11 +6,12 @@ import { MastersPreviewSection } from '../../components/sections/MastersPreviewS
 import { ReviewsSection } from '../../components/sections/ReviewsSection/ReviewsSection'
 import { ServicesPreviewSection } from '../../components/sections/ServicesPreviewSection/ServicesPreviewSection'
 import { WhyChooseUsSection } from '../../components/sections/WhyChooseUsSection/WhyChooseUsSection'
+
 import './HomePage.scss'
 
 export function HomePage() {
   return (
-    <>
+    <main className="home-page">
       <HeroSection />
       <ServicesPreviewSection />
       <MastersPreviewSection />
@@ -19,6 +20,6 @@ export function HomePage() {
       <ReviewsSection />
       <CTASection />
       <ContactSection />
-    </>
+    </main>
   )
 }
