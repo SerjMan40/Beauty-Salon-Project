@@ -1,5 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import type { GalleryImage } from '../../../types/gallery.types'
+import { fetchGallery } from './gallery.thunks'
 
 export interface GalleryState {
   images: GalleryImage[]
@@ -31,6 +32,21 @@ const gallerySlice = createSlice({
     setGalleryError(state, action: PayloadAction<string | null>) {
       state.error = action.payload
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchGallery.pending, (state) => {
+        state.isLoading = true
+        state.error = null
+      })
+      .addCase(fetchGallery.fulfilled, (state, action) => {
+        state.images = action.payload
+        state.isLoading = false
+      })
+      .addCase(fetchGallery.rejected, (state, action) => {
+        state.isLoading = false
+        state.error = action.error.message ?? 'Не удалось загрузить галерею.'
+      })
   },
 })
 

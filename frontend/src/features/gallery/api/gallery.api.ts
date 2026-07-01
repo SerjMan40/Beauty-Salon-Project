@@ -1,9 +1,8 @@
 import { apiClient } from '../../../api/axios'
+import { API_ROUTES } from '../../../constants/api.constants'
 import type { GalleryImage } from '../types/gallery.types'
 
-const GALLERY_ROUTE = '/gallery'
-
 export const galleryApi = {
-  getAll: () => apiClient.get<GalleryImage[]>(GALLERY_ROUTE),
-  getById: (id: string) => apiClient.get<GalleryImage>(`${GALLERY_ROUTE}/${id}`),
+  getAll: () => apiClient.get<GalleryImage[]>(API_ROUTES.gallery),
+  getById: (id: string) => apiClient.get<GalleryImage>(`${API_ROUTES.gallery}/${id}`),
 }

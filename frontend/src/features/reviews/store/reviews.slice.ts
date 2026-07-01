@@ -1,5 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import type { Review } from '../../../types/review.types'
+import { createReview, fetchReviews } from './reviews.thunks'
 
 export interface ReviewsState {
   items: Review[]
@@ -34,6 +35,24 @@ const reviewsSlice = createSlice({
     setReviewsError(state, action: PayloadAction<string | null>) {
       state.error = action.payload
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchReviews.pending, (state) => {
+        state.isLoading = true
+        state.error = null
+      })
+      .addCase(fetchReviews.fulfilled, (state, action) => {
+        state.items = action.payload
+        state.isLoading = false
+      })
+      .addCase(fetchReviews.rejected, (state, action) => {
+        state.isLoading = false
+        state.error = action.error.message ?? 'Не удалось загрузить отзывы.'
+      })
+      .addCase(createReview.fulfilled, (state, action) => {
+        state.items.unshift(action.payload)
+      })
   },
 })
 

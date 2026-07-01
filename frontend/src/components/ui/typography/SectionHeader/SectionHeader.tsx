@@ -8,6 +8,8 @@ import './SectionHeader.scss'
 
 export const SectionHeader = ({
   title,
+  eyebrow,
+  titleId,
   description,
   actions,
   align = 'left',
@@ -26,7 +28,9 @@ export const SectionHeader = ({
   return (
     <div className={sectionHeaderClassName} {...props}>
       <div className="section-header__content">
-        <SectionTitle>{title}</SectionTitle>
+        {eyebrow && <span className="section-header__eyebrow">{eyebrow}</span>}
+
+        <SectionTitle id={titleId}>{title}</SectionTitle>
 
         {description && (
           <SectionDescription>

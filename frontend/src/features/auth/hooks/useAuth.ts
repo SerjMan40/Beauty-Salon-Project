@@ -7,7 +7,7 @@ import {
   selectCurrentUser,
   selectIsAuthenticated,
 } from '../store/auth.selectors'
-import type { LoginCredentials } from '../types/auth.types'
+import type { LoginCredentials, RegisterCredentials } from '../types/auth.types'
 
 export function useAuth() {
   const dispatch = useAppDispatch()
@@ -31,5 +31,15 @@ export function useAuth() {
     dispatch(clearCredentials())
   }, [dispatch])
 
-  return { user, isAuthenticated, isLoading, login, logout }
+  const register = useCallback(
+    async (credentials: RegisterCredentials) => {
+      const { data } = await authApi.register(credentials)
+      localStorage.setItem('accessToken', data.accessToken)
+      dispatch(setCredentials(data))
+      return data
+    },
+    [dispatch],
+  )
+
+  return { user, isAuthenticated, isLoading, login, register, logout }
 }

@@ -1,5 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import type { Appointment } from '../../../types/appointment.types'
+import { createAppointment, fetchAppointments } from './booking.thunks'
 
 export interface AppointmentsState {
   items: Appointment[]
@@ -37,6 +38,24 @@ const appointmentsSlice = createSlice({
     setAppointmentsError(state, action: PayloadAction<string | null>) {
       state.error = action.payload
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAppointments.pending, (state) => {
+        state.isLoading = true
+        state.error = null
+      })
+      .addCase(fetchAppointments.fulfilled, (state, action) => {
+        state.items = action.payload
+        state.isLoading = false
+      })
+      .addCase(fetchAppointments.rejected, (state, action) => {
+        state.isLoading = false
+        state.error = action.error.message ?? 'Не удалось загрузить записи.'
+      })
+      .addCase(createAppointment.fulfilled, (state, action) => {
+        state.items.push(action.payload)
+      })
   },
 })
 

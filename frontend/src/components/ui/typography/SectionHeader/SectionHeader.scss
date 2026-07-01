@@ -1,3 +1,6 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/abstracts/breakpoints';
+
 .section-header {
   display: flex;
   align-items: flex-end;
@@ -26,7 +29,7 @@
     text-align: left;
   }
 
-  @include media-max(md) {
+  @include breakpoints.down('tablet') {
     flex-direction: column;
     align-items: flex-start;
 

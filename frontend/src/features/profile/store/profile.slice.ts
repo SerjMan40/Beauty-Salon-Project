@@ -1,5 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import type { PersonalOffer, Profile, VisitHistoryItem } from '../../../types/user.types'
+import { fetchProfile, updateProfile } from './profile.thunks'
 
 export interface ProfileState {
   profile: Profile | null
@@ -41,6 +42,24 @@ const profileSlice = createSlice({
     setProfileError(state, action: PayloadAction<string | null>) {
       state.error = action.payload
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProfile.pending, (state) => {
+        state.isLoading = true
+        state.error = null
+      })
+      .addCase(fetchProfile.fulfilled, (state, action) => {
+        state.profile = action.payload
+        state.isLoading = false
+      })
+      .addCase(fetchProfile.rejected, (state, action) => {
+        state.isLoading = false
+        state.error = action.error.message ?? 'Не удалось загрузить профиль.'
+      })
+      .addCase(updateProfile.fulfilled, (state, action) => {
+        state.profile = action.payload
+      })
   },
 })
 

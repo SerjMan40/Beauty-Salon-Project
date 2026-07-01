@@ -1,13 +1,31 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { ROUTES } from '../../app/config/routes'
 import { SectionHeader } from '../../components/ui'
 import { RegisterForm } from '../../features/auth'
+import { useAuth } from '../../features/auth/hooks/useAuth'
 
 import './RegisterPage.scss'
 import { PageContainer } from '../../layouts/components/PageContainer/PageContainer'
 
 export function RegisterPage() {
+  const navigate = useNavigate()
+  const { register } = useAuth()
+
+  const handleRegister = async (values: {
+    name: string
+    email: string
+    password: string
+    confirmPassword: string
+  }) => {
+    await register({
+      name: values.name,
+      email: values.email,
+      password: values.password,
+    })
+    navigate(ROUTES.profile)
+  }
+
   return (
     <section className="register-page" aria-labelledby="register-page-title">
       <PageContainer>
@@ -22,7 +40,7 @@ export function RegisterPage() {
           </div>
 
           <div className="register-page__card">
-            <RegisterForm />
+            <RegisterForm onSubmit={(values) => void handleRegister(values)} />
 
             <p className="register-page__footer">
               Уже есть аккаунт? <Link to={ROUTES.login}>Войти</Link>

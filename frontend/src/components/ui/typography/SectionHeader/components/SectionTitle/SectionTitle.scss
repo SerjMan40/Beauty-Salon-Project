@@ -1,3 +1,6 @@
+@use '../../../../../../styles/tokens' as *;
+@use '../../../../../../styles/abstracts/breakpoints';
+
 .section-title {
   margin: 0;
 
@@ -23,7 +26,7 @@
     font-size: $font-size-xl;
   }
 
-  @include media-max(md) {
+  @include breakpoints.down('tablet') {
     &--h1 {
       font-size: $font-size-3xl;
     }
