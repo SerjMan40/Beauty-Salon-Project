@@ -1,48 +1,87 @@
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { Button } from '../../../../components/ui/Button/Button'
-import { Input } from '../../../../components/ui/Input/Input'
-import { registerSchema, type RegisterFormValues } from '../../schemas/auth.schema'
+import { useState } from 'react'
 
-interface RegisterFormProps {
-  isSubmitting?: boolean
-  onSubmit: (values: RegisterFormValues) => void | Promise<void>
+import type { RegisterFormProps, RegisterFormValues } from './types'
+
+import './RegisterForm.scss'
+
+const INITIAL_VALUES: RegisterFormValues = {
+  name: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
 }
 
-export function RegisterForm({ isSubmitting = false, onSubmit }: RegisterFormProps) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<RegisterFormValues>({
-    resolver: zodResolver(registerSchema),
-  })
+export function RegisterForm({ onSubmit }: RegisterFormProps) {
+  const [values, setValues] = useState<RegisterFormValues>(INITIAL_VALUES)
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target
+
+    setValues((currentValues) => ({
+      ...currentValues,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    onSubmit?.(values)
+  }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
-      <label>
+    <form className="register-form" onSubmit={handleSubmit}>
+      <label className="register-form__field">
         <span>Имя</span>
-        <Input autoComplete="name" {...register('name')} />
-        {errors.name && <small role="alert">{errors.name.message}</small>}
+        <input
+          name="name"
+          type="text"
+          value={values.name}
+          onChange={handleChange}
+          placeholder="Введите имя"
+          required
+        />
       </label>
-      <label>
+
+      <label className="register-form__field">
         <span>Email</span>
-        <Input type="email" autoComplete="email" {...register('email')} />
-        {errors.email && <small role="alert">{errors.email.message}</small>}
+        <input
+          name="email"
+          type="email"
+          value={values.email}
+          onChange={handleChange}
+          placeholder="Введите email"
+          required
+        />
       </label>
-      <label>
+
+      <label className="register-form__field">
         <span>Пароль</span>
-        <Input type="password" autoComplete="new-password" {...register('password')} />
-        {errors.password && <small role="alert">{errors.password.message}</small>}
+        <input
+          name="password"
+          type="password"
+          value={values.password}
+          onChange={handleChange}
+          placeholder="Введите пароль"
+          required
+        />
       </label>
-      <label>
+
+      <label className="register-form__field">
         <span>Повторите пароль</span>
-        <Input type="password" autoComplete="new-password" {...register('confirmPassword')} />
-        {errors.confirmPassword && <small role="alert">{errors.confirmPassword.message}</small>}
+        <input
+          name="confirmPassword"
+          type="password"
+          value={values.confirmPassword}
+          onChange={handleChange}
+          placeholder="Повторите пароль"
+          required
+        />
       </label>
-      <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Создаём аккаунт…' : 'Зарегистрироваться'}
-      </Button>
+
+      <button className="register-form__button" type="submit">
+        Зарегистрироваться
+      </button>
     </form>
   )
 }

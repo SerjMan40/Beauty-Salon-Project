@@ -2,18 +2,8 @@ import type { BookingTimeSlotsProps } from './types'
 
 import './BookingTimeSlots.scss'
 
-const TIME_SLOTS = [
-  '09:00',
-  '10:00',
-  '11:00',
-  '12:00',
-  '14:00',
-  '15:00',
-  '16:00',
-  '17:00',
-] as const
-
 export function BookingTimeSlots({
+  slots,
   selectedTime,
   onSelect,
 }: BookingTimeSlotsProps) {
@@ -22,7 +12,7 @@ export function BookingTimeSlots({
       <h3 className="booking-time-slots__title">Выберите время</h3>
 
       <div className="booking-time-slots__grid">
-        {TIME_SLOTS.map((time) => {
+        {slots.map((time) => {
           const isSelected = selectedTime === time
 
           return (

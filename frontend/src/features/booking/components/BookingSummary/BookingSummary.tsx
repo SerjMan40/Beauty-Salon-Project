@@ -6,8 +6,11 @@ import type { BookingSummaryProps } from './types'
 import './BookingSummary.scss'
 
 export function BookingSummary({
+  serviceName,
+  masterName,
   selectedDate,
   selectedTime,
+  price,
 }: BookingSummaryProps) {
   const formattedDate = selectedDate
     ? format(selectedDate, 'd MMMM yyyy', { locale: ru })
@@ -21,6 +24,16 @@ export function BookingSummary({
 
       <dl className="booking-summary__list">
         <div className="booking-summary__item">
+          <dt>Услуга</dt>
+          <dd>{serviceName}</dd>
+        </div>
+
+        <div className="booking-summary__item">
+          <dt>Мастер</dt>
+          <dd>{masterName}</dd>
+        </div>
+
+        <div className="booking-summary__item">
           <dt>Дата</dt>
           <dd>{formattedDate}</dd>
         </div>
@@ -28,6 +41,10 @@ export function BookingSummary({
         <div className="booking-summary__item">
           <dt>Время</dt>
           <dd>{selectedTime || 'Время не выбрано'}</dd>
+        </div>
+        <div className="booking-summary__item">
+          <dt>Стоимость</dt>
+          <dd>{price.toLocaleString('ru-RU')} ₽</dd>
         </div>
       </dl>
 

@@ -1,33 +1,44 @@
-import { useState } from 'react'
-import { Modal } from '../../../../components/ui/Modal/Modal'
-import type { LoginFormValues, RegisterFormValues } from '../../schemas/auth.schema'
-import { LoginForm } from '../LoginForm/LoginForm'
-import { RegisterForm } from '../RegisterForm/RegisterForm'
+import type { AuthModalProps } from './types'
 
-type AuthMode = 'login' | 'register'
+import './AuthModal.scss'
 
-interface AuthModalProps {
-  isOpen: boolean
-  isSubmitting?: boolean
-  onClose: () => void
-  onLogin: (values: LoginFormValues) => void | Promise<void>
-  onRegister: (values: RegisterFormValues) => void | Promise<void>
-}
-
-export function AuthModal({ isOpen, isSubmitting, onClose, onLogin, onRegister }: AuthModalProps) {
-  const [mode, setMode] = useState<AuthMode>('login')
+export function AuthModal({
+  isOpen,
+  title = 'Авторизация',
+  onClose,
+  children,
+}: AuthModalProps) {
+  if (!isOpen) {
+    return null
+  }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <h2>{mode === 'login' ? 'Вход' : 'Регистрация'}</h2>
-      {mode === 'login' ? (
-        <LoginForm isSubmitting={isSubmitting} onSubmit={onLogin} />
-      ) : (
-        <RegisterForm isSubmitting={isSubmitting} onSubmit={onRegister} />
-      )}
-      <button type="button" onClick={() => setMode(mode === 'login' ? 'register' : 'login')}>
-        {mode === 'login' ? 'Нет аккаунта? Зарегистрироваться' : 'Уже есть аккаунт? Войти'}
-      </button>
-    </Modal>
+    <div
+      className="auth-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="auth-modal-title"
+    >
+      <div className="auth-modal__overlay" onClick={onClose} />
+
+      <div className="auth-modal__content">
+        <header className="auth-modal__header">
+          <h2 id="auth-modal-title">{title}</h2>
+
+          <button
+            type="button"
+            className="auth-modal__close"
+            onClick={onClose}
+            aria-label="Закрыть"
+          >
+            ×
+          </button>
+        </header>
+
+        <div className="auth-modal__body">
+          {children}
+        </div>
+      </div>
+    </div>
   )
 }

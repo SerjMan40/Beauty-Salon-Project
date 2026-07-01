@@ -19,7 +19,7 @@ export function BookingForm({
   slots,
   minDate,
 }: BookingFormProps) {
-  const [selectedDate, setSelectedDate] = useState('')
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null)
   const [selectedTime, setSelectedTime] = useState('')
 
   return (
@@ -29,14 +29,14 @@ export function BookingForm({
       <div className="booking-form__content">
         <BookingCalendar
           value={selectedDate}
-          min={minDate}
+          minDate={minDate}
           onChange={setSelectedDate}
         />
 
         <BookingTimeSlots
           slots={slots}
-          value={selectedTime}
-          onChange={setSelectedTime}
+          selectedTime={selectedTime}
+          onSelect={setSelectedTime}
         />
       </div>
 
@@ -44,7 +44,8 @@ export function BookingForm({
         <BookingSummary
           serviceName={serviceName}
           masterName={masterName}
-          startsAt={`${selectedDate}T${selectedTime}`}
+          selectedDate={selectedDate}
+          selectedTime={selectedTime}
           price={price}
         />
       )}

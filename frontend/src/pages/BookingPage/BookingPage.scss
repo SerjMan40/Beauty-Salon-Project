@@ -1,4 +1,7 @@
 .booking-page {
-  display: grid;
-  gap: 2rem;
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.booking-page__header {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
 }

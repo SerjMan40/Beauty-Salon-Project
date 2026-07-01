@@ -1,38 +1,61 @@
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { Button } from '../../../../components/ui/Button/Button'
-import { Input } from '../../../../components/ui/Input/Input'
-import { loginSchema, type LoginFormValues } from '../../schemas/auth.schema'
+import { useState } from 'react'
 
-interface LoginFormProps {
-  isSubmitting?: boolean
-  onSubmit: (values: LoginFormValues) => void | Promise<void>
+import type { LoginFormProps, LoginFormValues } from './types'
+
+import './LoginForm.scss'
+
+const INITIAL_VALUES: LoginFormValues = {
+  email: '',
+  password: '',
 }
 
-export function LoginForm({ isSubmitting = false, onSubmit }: LoginFormProps) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginFormValues>({
-    resolver: zodResolver(loginSchema),
-  })
+export function LoginForm({ onSubmit }: LoginFormProps) {
+  const [values, setValues] = useState<LoginFormValues>(INITIAL_VALUES)
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target
+
+    setValues((currentValues) => ({
+      ...currentValues,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    onSubmit?.(values)
+  }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
-      <label>
+    <form className="login-form" onSubmit={handleSubmit}>
+      <label className="login-form__field">
         <span>Email</span>
-        <Input type="email" autoComplete="email" {...register('email')} />
-        {errors.email && <small role="alert">{errors.email.message}</small>}
+        <input
+          name="email"
+          type="email"
+          value={values.email}
+          onChange={handleChange}
+          placeholder="Введите email"
+          required
+        />
       </label>
-      <label>
+
+      <label className="login-form__field">
         <span>Пароль</span>
-        <Input type="password" autoComplete="current-password" {...register('password')} />
-        {errors.password && <small role="alert">{errors.password.message}</small>}
+        <input
+          name="password"
+          type="password"
+          value={values.password}
+          onChange={handleChange}
+          placeholder="Введите пароль"
+          required
+        />
       </label>
-      <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Входим…' : 'Войти'}
-      </Button>
+
+      <button className="login-form__button" type="submit">
+        Войти
+      </button>
     </form>
   )
 }

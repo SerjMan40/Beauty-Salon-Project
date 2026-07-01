@@ -1,4 +1,45 @@
 .auth-modal {
+  position: fixed;
+  inset: 0;
   display: grid;
-  gap: 1rem;
+  place-items: center;
+  z-index: 1000;
+}
+
+.auth-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 45%);
+}
+
+.auth-modal__content {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 2rem, 32rem);
+  padding: 2rem;
+  border-radius: 1rem;
+  background: var(--color-surface, #fff);
+}
+
+.auth-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.auth-modal__header h2 {
+  margin: 0;
+}
+
+.auth-modal__close {
+  border: 0;
+  color: inherit;
+  font-size: 1.5rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.auth-modal__body {
+  display: grid;
 }
