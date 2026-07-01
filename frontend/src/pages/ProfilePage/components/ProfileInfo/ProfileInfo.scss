@@ -1,0 +1,30 @@
+.profile-info {
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+}
+
+.profile-info__title {
+  margin: 0 0 1.5rem;
+}
+
+.profile-info__list {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+.profile-info__item {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.profile-info__item dt {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.profile-info__item dd {
+  margin: 0;
+  font-weight: 600;
+}

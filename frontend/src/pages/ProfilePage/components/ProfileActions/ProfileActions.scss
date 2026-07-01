@@ -1,0 +1,35 @@
+.profile-actions {
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 1rem;
+}
+
+.profile-actions__title {
+  margin: 0 0 1.5rem;
+}
+
+.profile-actions__list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.profile-actions__button {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: 999px;
+  color: inherit;
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
+}
+
+.profile-actions__button:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.profile-actions__button--danger:hover {
+  border-color: red;
+  color: red;
+}
