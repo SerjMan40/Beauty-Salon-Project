@@ -1,0 +1,40 @@
+// Brand palette
+$brand-50: #fff1f6;
+$brand-100: #ffe4ee;
+$brand-300: #e9a3be;
+$brand-500: #a34f72;
+$brand-700: #71324e;
+$brand-900: #3f1c2c;
+
+// Neutral palette
+$neutral-0: #ffffff;
+$neutral-50: #fffaf8;
+$neutral-100: #f6eff2;
+$neutral-300: #cbbbc2;
+$neutral-500: #746970;
+$neutral-700: #30272c;
+$neutral-800: #2b2327;
+$neutral-900: #201a1d;
+
+// Semantic palette
+$success: #2f7d5a;
+$warning: #a66a16;
+$error: #b83a4b;
+$info: #3573a8;
+
+// Component aliases
+$color-primary: $brand-500;
+$color-secondary: $brand-300;
+$color-success: $success;
+$color-warning: $warning;
+$color-error: $error;
+$color-info: $info;
+$color-text-primary: $neutral-700;
+$color-text-secondary: $neutral-500;
+$color-text-muted: $neutral-500;
+$color-border: $neutral-300;
+$color-surface: $neutral-0;
+$color-surface-muted: $neutral-100;
+$color-surface-disabled: $neutral-100;
+$color-white: $neutral-0;
+$color-black: $neutral-900;

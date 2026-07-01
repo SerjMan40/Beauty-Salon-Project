@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import { ROUTES } from '../../app/config/routes'
 
-import { SectionHeader } from '../../components/ui/SectionHeader'
+import { SectionHeader } from '../../components/ui'
 
 import './ArticlesPage.scss'
 import { PageContainer } from '../../layouts/components/PageContainer/PageContainer'

@@ -1,4 +1,4 @@
-import { SectionHeader } from '../../components/ui/SectionHeader'
+import { SectionHeader } from '../../components/ui'
 
 import { ProfileActions } from './components/ProfileActions/ProfileActions'
 import { ProfileBookings } from './components/ProfileBookings/ProfileBookings'

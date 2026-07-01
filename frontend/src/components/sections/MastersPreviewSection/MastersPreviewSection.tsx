@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { ROUTES } from '../../../app/config/routes'
-import { SectionHeader } from '../../ui/SectionHeader'
+import { SectionHeader } from '../../ui'
 import { MasterCard, selectMasters } from '../../../features/masters'
 import { useAppSelector } from '../../../hooks'
 import { PageContainer } from '../../../layouts/components/PageContainer/PageContainer'

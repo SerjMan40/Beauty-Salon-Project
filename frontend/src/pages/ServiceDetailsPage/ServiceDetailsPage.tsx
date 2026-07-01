@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 
 import { ROUTES } from '../../app/config/routes'
 import { EmptyState } from '../../components/sections/EmptyState/EmptyState'
-import { Loader } from '../../components/ui/Loader/Loader'
+import { Loader } from '../../components/ui'
 import {
   fetchServices,
   selectServiceById,

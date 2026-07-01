@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { ROUTES } from '../../../app/config/routes'
-import { SectionHeader } from '../../ui/SectionHeader'
+import { SectionHeader } from '../../ui'
 
 import './GalleryPreviewSection.scss'
 import { PageContainer } from '../../../layouts/components/PageContainer/PageContainer'

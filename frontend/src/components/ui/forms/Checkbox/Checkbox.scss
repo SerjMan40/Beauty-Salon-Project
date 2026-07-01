@@ -1,0 +1,98 @@
+@use '../../../../styles/tokens' as *;
+
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__box {
+    position: relative;
+
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    border: 2px solid $color-border;
+    border-radius: $radius-sm;
+    background: $color-surface;
+
+    transition: all $transition-fast;
+  }
+
+  &__input:checked + &__box {
+    background: $color-primary;
+    border-color: $color-primary;
+  }
+
+  &__input:checked + &__box::after {
+    content: '';
+
+    position: absolute;
+
+    left: 6px;
+    top: 2px;
+
+    width: 4px;
+    height: 9px;
+
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+
+    transform: rotate(45deg);
+  }
+
+  &__input:focus-visible + &__box {
+    box-shadow: 0 0 0 3px rgba($color-primary, .15);
+  }
+
+  &__text {
+    color: $color-text-primary;
+    font-size: $font-size-md;
+  }
+
+  &__required {
+    color: $color-error;
+    margin-left: $spacing-1;
+  }
+
+  &__hint {
+    margin-left: 32px;
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+  }
+
+  &__error {
+    margin-left: 32px;
+    font-size: $font-size-xs;
+    color: $color-error;
+  }
+
+  &--disabled {
+    opacity: .6;
+
+    .checkbox__label {
+      cursor: not-allowed;
+    }
+  }
+
+  &--error {
+    .checkbox__box {
+      border-color: $color-error;
+    }
+  }
+}

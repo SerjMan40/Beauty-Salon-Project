@@ -1,0 +1,93 @@
+@use '../../../../styles/tokens' as *;
+
+.tooltip {
+  position: relative;
+  display: inline-flex;
+
+  &__trigger {
+    display: inline-flex;
+  }
+
+  &__content {
+    position: absolute;
+    z-index: $z-index-tooltip;
+
+    max-width: 240px;
+    padding: $spacing-2 $spacing-3;
+
+    font-size: $font-size-xs;
+    line-height: $line-height-normal;
+    color: $color-white;
+
+    background-color: $color-text-primary;
+    border-radius: $radius-md;
+    box-shadow: $shadow-md;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+      opacity $transition-fast,
+      visibility $transition-fast,
+      transform $transition-fast;
+  }
+
+  &:hover &__content,
+  &:focus-within &__content {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &--top {
+    .tooltip__content {
+      left: 50%;
+      bottom: calc(100% + $spacing-2);
+      transform: translateX(-50%) translateY(4px);
+    }
+
+    &:hover .tooltip__content,
+    &:focus-within .tooltip__content {
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  &--right {
+    .tooltip__content {
+      top: 50%;
+      left: calc(100% + $spacing-2);
+      transform: translateY(-50%) translateX(-4px);
+    }
+
+    &:hover .tooltip__content,
+    &:focus-within .tooltip__content {
+      transform: translateY(-50%) translateX(0);
+    }
+  }
+
+  &--bottom {
+    .tooltip__content {
+      left: 50%;
+      top: calc(100% + $spacing-2);
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    &:hover .tooltip__content,
+    &:focus-within .tooltip__content {
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  &--left {
+    .tooltip__content {
+      top: 50%;
+      right: calc(100% + $spacing-2);
+      transform: translateY(-50%) translateX(4px);
+    }
+
+    &:hover .tooltip__content,
+    &:focus-within .tooltip__content {
+      transform: translateY(-50%) translateX(0);
+    }
+  }
+}

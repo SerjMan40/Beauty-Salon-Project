@@ -1,0 +1,74 @@
+@use '../../../../styles/tokens' as *;
+
+.loader {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-3;
+
+  color: $color-primary;
+
+  &__circle {
+    display: inline-block;
+
+    border: 3px solid rgba($color-primary, 0.2);
+    border-top-color: $color-primary;
+    border-radius: 50%;
+
+    animation: loader-spin 0.8s linear infinite;
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+
+  &--sm {
+    .loader__circle {
+      width: 18px;
+      height: 18px;
+      border-width: 2px;
+    }
+
+    .loader__text {
+      font-size: $font-size-xs;
+    }
+  }
+
+  &--md {
+    .loader__circle {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &--lg {
+    .loader__circle {
+      width: 44px;
+      height: 44px;
+      border-width: 4px;
+    }
+
+    .loader__text {
+      font-size: $font-size-md;
+    }
+  }
+
+  &--fullscreen {
+    position: fixed;
+    inset: 0;
+    z-index: $z-index-overlay;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgba($color-surface, 0.8);
+    backdrop-filter: blur(4px);
+  }
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

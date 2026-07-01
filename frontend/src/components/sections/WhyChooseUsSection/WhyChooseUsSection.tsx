@@ -1,5 +1,5 @@
 import { PageContainer } from '../../../layouts/components/PageContainer/PageContainer'
-import { SectionHeader } from '../../ui/SectionHeader'
+import { SectionHeader } from '../../ui'
 
 import './WhyChooseUsSection.scss'
 

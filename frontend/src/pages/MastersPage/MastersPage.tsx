@@ -2,8 +2,7 @@ import { useEffect } from 'react'
 
 
 import { EmptyState } from '../../components/sections/EmptyState/EmptyState'
-import { Loader } from '../../components/ui/Loader/Loader'
-import { SectionHeader } from '../../components/ui/SectionHeader'
+import { Loader, SectionHeader } from '../../components/ui'
 import {
   fetchMasters,
 

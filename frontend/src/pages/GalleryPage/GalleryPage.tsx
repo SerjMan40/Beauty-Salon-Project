@@ -1,5 +1,5 @@
 
-import { SectionHeader } from '../../components/ui/SectionHeader'
+import { SectionHeader } from '../../components/ui'
 import { PageContainer } from '../../layouts/components/PageContainer/PageContainer'
 
 import './GalleryPage.scss'

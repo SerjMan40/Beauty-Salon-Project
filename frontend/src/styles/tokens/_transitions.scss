@@ -1,0 +1,12 @@
+$duration-fast: 120ms;
+$duration-normal: 180ms;
+$duration-slow: 300ms;
+
+$ease-standard: ease;
+$ease-in: ease-in;
+$ease-out: ease-out;
+$ease-in-out: ease-in-out;
+
+$transition-fast: $duration-fast $ease-standard;
+$transition-normal: $duration-normal $ease-standard;
+$transition-slow: $duration-slow $ease-standard;

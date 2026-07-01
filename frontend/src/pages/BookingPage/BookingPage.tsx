@@ -1,6 +1,6 @@
 import { APPOINTMENT_STATUSES } from '../../constants/appointment.constants'
 
-import { SectionHeader } from '../../components/ui/SectionHeader'
+import { SectionHeader } from '../../components/ui'
 import { BookingForm } from '../../features/booking'
 
 import './BookingPage.scss'

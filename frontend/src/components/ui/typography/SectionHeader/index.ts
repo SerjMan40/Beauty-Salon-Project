@@ -1,0 +1,8 @@
+export { SectionHeader } from './SectionHeader'
+export type { SectionHeaderProps } from './SectionHeader.types'
+export { SectionActions } from './components/SectionActions/SectionActions'
+export type { SectionActionsProps } from './components/SectionActions/SectionActions.types'
+export { SectionDescription } from './components/SectionDescription/SectionDescription'
+export type { SectionDescriptionProps } from './components/SectionDescription/SectionDescription.types'
+export { SectionTitle } from './components/SectionTitle/SectionTitle'
+export type { SectionTitleProps } from './components/SectionTitle/SectionTitle.types'

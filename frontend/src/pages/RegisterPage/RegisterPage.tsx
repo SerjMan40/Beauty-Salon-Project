@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { ROUTES } from '../../app/config/routes'
-import { SectionHeader } from '../../components/ui/SectionHeader'
+import { SectionHeader } from '../../components/ui'
 import { RegisterForm } from '../../features/auth'
 
 import './RegisterPage.scss'

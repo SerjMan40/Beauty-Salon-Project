@@ -1,0 +1,51 @@
+@use '../../../../styles/tokens' as *;
+
+.breadcrumbs {
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-2;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-2;
+
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+
+    &:not(:last-child)::after {
+      content: '/';
+      color: $color-text-muted;
+    }
+  }
+
+  &__link {
+    color: $color-text-secondary;
+    text-decoration: none;
+
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__current {
+    color: $color-text-primary;
+    font-weight: $font-weight-medium;
+  }
+}

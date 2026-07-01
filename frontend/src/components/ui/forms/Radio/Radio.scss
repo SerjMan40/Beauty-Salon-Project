@@ -1,0 +1,99 @@
+@use '../../../../styles/tokens' as *;
+
+.radio {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__circle {
+    position: relative;
+
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    border: 2px solid $color-border;
+    border-radius: 50%;
+    background-color: $color-surface;
+
+    transition:
+      border-color $transition-fast,
+      box-shadow $transition-fast,
+      background-color $transition-fast;
+  }
+
+  &__input:checked + &__circle {
+    border-color: $color-primary;
+  }
+
+  &__input:checked + &__circle::after {
+    content: '';
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+    background-color: $color-primary;
+
+    transform: translate(-50%, -50%);
+  }
+
+  &__input:focus-visible + &__circle {
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
+  }
+
+  &__text {
+    font-size: $font-size-md;
+    color: $color-text-primary;
+  }
+
+  &__required {
+    margin-left: $spacing-1;
+    color: $color-error;
+  }
+
+  &__hint {
+    margin-left: 32px;
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+  }
+
+  &__error {
+    margin-left: 32px;
+    font-size: $font-size-xs;
+    color: $color-error;
+  }
+
+  &--disabled {
+    opacity: 0.6;
+
+    .radio__label {
+      cursor: not-allowed;
+    }
+  }
+
+  &--error {
+    .radio__circle {
+      border-color: $color-error;
+    }
+  }
+}

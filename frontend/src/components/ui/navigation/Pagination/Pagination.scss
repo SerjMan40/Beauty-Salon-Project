@@ -1,0 +1,94 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/abstracts/breakpoints';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-3;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__button,
+  &__page {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 $spacing-3;
+
+    font-family: inherit;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+
+    cursor: pointer;
+
+    transition:
+      color $transition-fast,
+      background-color $transition-fast,
+      border-color $transition-fast;
+
+    &:hover:not(:disabled) {
+      color: $color-primary;
+      border-color: $color-primary;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__page {
+    padding: 0;
+  }
+
+  &__page--active {
+    color: $color-white;
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+
+  &__dots {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 36px;
+    height: 36px;
+
+    color: $color-text-secondary;
+  }
+
+  @include breakpoints.down('mobile') {
+    gap: $spacing-2;
+
+    &__button {
+      padding: 0 $spacing-2;
+      font-size: $font-size-xs;
+    }
+
+    &__page,
+    &__dots {
+      min-width: 32px;
+      height: 32px;
+    }
+  }
+}

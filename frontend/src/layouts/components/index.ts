@@ -1,5 +1,4 @@
 export { AnnouncementBar } from './AnnouncementBar/AnnouncementBar'
-export { Breadcrumbs } from './Breadcrumbs/Breadcrumbs'
 export { CookieBanner } from './CookieBanner/CookieBanner'
 export { Footer } from './Footer/Footer'
 export { Header } from './Header/Header'
